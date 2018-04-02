@@ -1,0 +1,184 @@
+<% include ./partials/header.ejs %>
+
+<div class="main-content">
+    <div class="container">
+        <div class="row Breadcrumb">
+            <a href="#" class="breadcrumb-element">Home</a>
+            <a href="#" class="breadcrumb-element">Gloves</a>
+        </div>
+        <div class="row">
+            <div class="col-3 refinements">
+                <div class="refinement-content">
+                    <span class="refinement-header">
+                        Gloves
+                    </span>
+                    <div class="category-refinement">
+                        <ul>
+                            <li>
+                                <a href="#" class="refinement-link">Youth Gloves</a>
+                            </li>
+                            <li>
+                                <a href="#" class="refinement-link">Softball</a>
+                            </li>
+                            <li>
+                                <a href="#" class="refinement-link">Pro Stock Gloves</a>
+                            </li>
+                            <li>
+                                <a href="#" class="refinement-link">Custom Gloves</a>
+                            </li>
+                            <li>
+                                <a href="#" class="refinement-link">Baseball</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <% for(let i = 0; i < keys.length - 2; i++){ %>
+                        <div class="refinement <%= keys[i] %>">
+                            <h3 class="toggle" id="<%= keys[i] %>">
+                                <span class="refinement-title"><%= keys[i] %></span>
+                                <i class="fas fa-angle-down "></i>
+                            </h3>
+                            <ul id="<%= keys[i] %>-list">
+                                <% criteria[keys[i]].forEach(function(value){ %>
+                                    <li>
+                                        <a href="#" class="criteria">
+                                            <span class="fa-layers fa-fw">
+        
+                                                <i class="far fa-square fa-lg"></i>
+                                                <!--<i class="fas fa-check"></i>-->
+                                            </span>
+                                            <%= value %>
+                                        </a>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    <% } %>
+                      
+                 </div>
+                
+            </div>
+            <div class="col-9">
+                <div class="row top-search-options">
+                    <div class="col-4">
+                        <div class="results-hits">
+                            <%= perPage * (current - 1) + 1 %> - <%= perPage * current %> of <%= count %> Results
+                        </div>
+                        <div class="sort-by">
+                            <select onChange="window.location.href=this.value">
+                                <option>Sort by</option>
+                                <option>Highest price</option>
+                                <option>Lowest price</option>
+                                <option>Newest</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <div class="items-per-page">
+                            <div class="label">View</div>
+                            <div><a class="items" id="<%= typeof perPage !== 'undefined' && perPage === 30 ? 'active' : ''%>" href="/?items=30">30</a></div>
+                            <div><a class="items" id="<%= typeof perPage !== 'undefined' && perPage === 90 ? 'active' : ''%>" href="/?items=90">90</a></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!--<div class="row compare-items">-->
+                    
+                <!--</div>-->
+                <div class="row search-results" >
+                        <% gloves.forEach(function(glove) { %>
+                            <div class="col-4 result-item">
+                                <div class="product">
+                                    <div class="item-img">
+                                        <img src=<%= glove.img %>></img>
+                                    </div>
+                                    <div class="product-name">
+                                        <a href="#">
+                                            <%= glove.name %> <%= glove.size %> in <%= glove.position %>
+                                        </a>
+                                    </div>
+                                    <div class="product-pricing">
+                                        <span class="product-sales-price">
+                                            $<%= glove.price %>
+                                        </span>
+                                    </div>
+                                    <div class="product-promo">
+                                        <div class="promotional-message">
+                                            
+                                            Free Shirt with a Purchase of $100 or more!
+                                        </div>
+                                    </div>
+                                    <div class="product-compare">
+                                        <label for="<%= glove._id %>">Compare</label>
+                                        <div class="field-wrapper" id="product-<%= glove._id %>">
+                                            <div class="checker">
+                                                <span>
+                                                    <input type="checkbox" id="<%= glove._id %>"></input>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center" >
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <% if (pages && pages > 0) { %>
+                        <ul class="pagination">
+                            <% if (current == 1) { %>
+                            <li class="page-item disabled"><a class="page-link">First</a></li>
+                            <% } else { %>
+                            <li class="page-item"><a class="page-link" href="/">First</a></li>
+                            <% } %>
+                     
+                            <% if (current == 1) { %>
+                            <li class=" page-item disabled"><a class="page-link">Previous</a></li>
+                            <% } else { %>
+                            <li class=" page-item"><a class="page-link" href="/?page=<%= Number(current) - 1 %>">Previous</a></li>
+                            <% } %>
+                     
+                            <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                            <% if (i !== 1) { %>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <% } %>
+                            <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                            <% if (i == current) { %>
+                            <li class="page-item active"><a class="page-link"><%= i %></a></li>
+                            <% } else { %>
+                            <li  class="page-item"><a class="page-link" href="/?page=<%= i %>"><%= i %></a></li>
+                            <% } %>
+                            <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <% } %>
+                            <% } %>
+                     
+                            <% if (current == pages) { %>
+                            <li class="page-item disabled"><a class="page-link">Next</a></li>
+                            <% } else { %>
+                            <li class="page-item"><a class="page-link" href="/?page=<%= Number(current) + 1 %>">Next</a></li>
+                            <% } %>
+                     
+                            <% if (current == pages) { %>
+                            <li class="page-item disabled"><a class="page-link">Last</a></li>
+                            <% } else { %>
+                            <li class="page-item"><a class="page-link" href="/?page=<%= pages %>">Last</a></li>
+                            <% } %>
+                        </ul>
+                    <% } %>
+                </div>
+                <div class="col-4"></div>
+                
+            </div>
+        </div>
+        
+        
+    </div>  
+
+
+<% include ./partials/footer.ejs %>

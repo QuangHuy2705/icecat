@@ -1,0 +1,178 @@
+footer {
+    width: 100%;
+    height: 420px;
+    background-color: #333;
+    clear: both;
+    display: block;
+    padding: 0 20px 0 20px;
+}
+
+
+.footer-social{
+    height: 80px;
+    background: #292929;
+    margin: 0 -20px 0 -20px;
+    padding: 0 20px;
+}
+
+.email-signup {
+    display: block;
+    float: right;
+    margin-right: 1%;
+    padding-top: 20px;
+}
+
+.email-signup label {
+    float: left;
+    color: #fff;
+    font-family: Oswald,sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 7px 10px 7px 0;
+    background-color: #292929;
+    margin: 0;
+    
+}
+
+.email-signup form {
+    background: #c6c6c6;
+    white-space: nowrap;
+}
+
+.email-signup input {
+    border: none;
+    margin: 3px;
+    width: 220px;
+    background-color: #c6c6c6;
+    color: #a9a9a9;
+    padding: .3125rem .625rem;
+    
+}
+
+.email-signup button {
+    background-color: #c6c6c6;
+    border: none;
+    color: #333;
+    width: 30px;
+    font-family: Oswald,sans-serif;
+    font-weight: 400;
+    line-height: 1.75rem;
+}
+
+.social-links {
+    display: inline-block;
+    width: 280px;
+    padding-top: 27px;
+}
+
+.social-links li {
+    float: left;
+    padding: 0 5px 0 5px;
+}
+
+.social-links li a {
+    color: #fff;
+}
+
+.links {
+    display: inline-block;
+    padding: 3px 0 0 10px ;
+}
+
+.social-title {
+    color: #fff;
+    font-family: Oswald,sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    float: left;
+}
+
+.header-search input {
+    width: 200px;
+    background-color:  transparent;
+    border: none;
+    height: 1.875rem;
+    color: #333;
+    cursor: text;
+}
+
+.footer-container {
+    display: table;
+    width: 100%;
+}
+
+.footer-container .footer-item {
+    display: block;
+    float: left;
+    padding: 0 45px 0 0 ;
+    border-right: 1px solid #6f6f6f;
+    border-bottom: 0;
+    margin: 20px 15px 20px 0 ;
+    min-height: 240px;
+    min-width: 18%;
+}
+
+.footer-container .footer-item label {
+    color: #fff;
+    font-family: Oswald,sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: .3rem;
+    line-height: 1.25rem;
+}
+
+.footer-item:nth-child(3) {
+    border-right: none;
+}
+
+.footer-container a {
+    color: #fff;
+}
+
+.menu-footer li {
+    line-height: 2.2em;
+    float: none;
+}
+
+
+.menu-footer {
+    padding: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+#footer-item-last {
+    float: right;
+    border: 0;
+    color: #fff;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding-right: 0;
+    min-width: 0;
+}
+
+
+.contact li {
+    min-width: 200px;
+    min-height: 50px;
+}
+
+.contact li a, .contact li span {
+    display: block;
+    padding-left: 35px;
+    position: relative;
+    top: -27px;
+}
+
+#footer-item-last p {
+    margin: 7px 0 4px 0;
+}
+
+.copyright {
+    border-top: 1px solid #6f6f6f;
+    line-height: 3.375rem;
+    margin: 0;
+    color: #fff;
+    text-align: left;
+}
