@@ -10,7 +10,7 @@ mongoose.connect(process.env.DATABASEURL);
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-seed();
+// seed();
 
 
 app.get("/", function(req, res){
