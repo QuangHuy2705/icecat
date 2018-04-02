@@ -5,8 +5,8 @@ var express = require("express"),
     Criteria = require("./models/refine-criteria.js"),
     seed = require("./seedDB.js");
 
-mongoose.connect("mongodb://localhost/rawlings");
-    
+mongoose.connect(process.env.DATABASEURL);
+// "mongodb://localhost/rawlings"
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
