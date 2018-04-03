@@ -12,6 +12,18 @@ app.set("view engine", "ejs");
 
 // seed();
 
+app.get("/api", function(req, res){
+    let request = new XMLHttpRequest();
+    let url = "https://api.instagram.com/thacquanghuy2705/";
+    request.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+        let response = JSON.parse(this.responseText);
+        console.log(response);
+    request.open("GET", url, true);
+    request.send();
+      }
+    }
+})
 
 app.get("/", function(req, res){
     var perpage = 0
